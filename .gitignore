@@ -1,4 +1,4 @@
-ettings/
+settings/
 .sonar/
 .vagrant/
 .DS_Store
@@ -17,4 +17,4 @@ out/
 *.rptconfig
 *backup.sql
 .sass-cache/
-
+*/target/*
