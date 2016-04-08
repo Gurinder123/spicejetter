@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController {
 
     @Autowired
-    LoginService loginService;
+    private LoginService loginService;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity loginUser(@RequestBody LoginUser loginUser) {
 
         boolean check = loginService.verifyLoginRequest(loginUser);
-                 System.out.println(check+"****************");
+        System.out.println(check + "****************");
         return null;
     }
 }

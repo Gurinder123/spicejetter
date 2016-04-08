@@ -3,7 +3,6 @@ package com.xebia.jetter.dao;
 import com.xebia.jetter.model.Passenger;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 /**
  * Created with IntelliJ IDEA.
  * User: HJAIN
@@ -13,8 +12,8 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface PassengerDao extends JpaRepository<Passenger,Long>{
+public interface PassengerRepository extends JpaRepository<Passenger,Integer>{
 
-    public Passenger findByPassword(String password);
 
+     Passenger findByUsername(String username);
 }

@@ -1,6 +1,6 @@
 package com.xebia.jetter.service;
 
-import com.xebia.jetter.dao.PassengerDao;
+import com.xebia.jetter.dao.PassengerRepository;
 import com.xebia.jetter.model.LoginUser;
 import com.xebia.jetter.model.Passenger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +17,13 @@ import org.springframework.stereotype.Service;
 public class LoginService {
 
     @Autowired
-    PassengerDao passengerDao;
+    private PassengerRepository passengerRepository;
 
     public boolean verifyLoginRequest(LoginUser loginUser) {
         boolean flag = false;
-        System.out.println(loginUser.getPassword()+"*******88"+passengerDao);
-        Passenger user = passengerDao.findByPassword(loginUser.getPassword());
-                              System.out.println(user.getUsername()+"*******88");
+        System.out.println(loginUser.getPassword() + "*******88" + passengerRepository);
+        Passenger user = passengerRepository.findByUsername(loginUser.getUsername());
+        System.out.println(user.getUsername() + "*******88");
         if (user.getPassword().equals(loginUser.getPassword()) && user.getUsername().equals(loginUser.getUsername())) {
             flag = true;
         }
