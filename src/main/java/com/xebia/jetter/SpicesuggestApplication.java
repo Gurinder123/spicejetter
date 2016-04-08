@@ -10,8 +10,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan
-@EnableJpaRepositories
+@ComponentScan({"com"})
+@EnableJpaRepositories({"com"})
 public class SpicesuggestApplication {
 
 	public static void main(String[] args) {

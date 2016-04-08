@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -14,11 +15,11 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "passenger")
-public class Passenger {
+public class Passenger implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     @Column
     private String username;

@@ -21,6 +21,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LoginUser {
-    private String userName;
-    private String passWord;
+
+    private String username;
+    private String password;
 }
