@@ -37,8 +37,8 @@ public class Flight {
     @Column String destination;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "flight_passenger", joinColumns = @JoinColumn(name =  "passenger_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "flight_id", referencedColumnName = "id"))
+    @JoinTable(name = "flight_passenger", joinColumns = @JoinColumn(name =  "flight_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "passenger_id", referencedColumnName = "id"))
     private Set<Passenger> passengers;
 
 }
