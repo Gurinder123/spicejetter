@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.joda.time.DateTime;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -35,6 +36,12 @@ public class Flight {
     private String source;
 
     @Column String destination;
+
+    @Column
+    private DateTime departureTime;
+
+    @Column
+    private DateTime arrivalTime;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "flight_passenger", joinColumns = @JoinColumn(name =  "flight_id", referencedColumnName = "id"),

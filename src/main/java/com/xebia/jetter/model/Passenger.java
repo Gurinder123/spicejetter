@@ -21,6 +21,12 @@ public class Passenger {
     private int id;
 
     @Column
+    private String username;
+
+    @Column
+    private String password;
+
+    @Column
     private String name;
 
     @Column
