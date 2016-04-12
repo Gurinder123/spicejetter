@@ -17,4 +17,4 @@ out/
 *.rptconfig
 *backup.sql
 .sass-cache/
-*/target/*
+/target

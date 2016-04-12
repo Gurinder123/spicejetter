@@ -21,9 +21,7 @@ public class LoginService {
 
     public boolean verifyLoginRequest(LoginUser loginUser) {
         boolean flag = false;
-        System.out.println(loginUser.getPassword() + "*******88" + passengerRepository);
         Passenger user = passengerRepository.findByUsername(loginUser.getUsername());
-        System.out.println(user.getUsername() + "*******88");
         if (user.getPassword().equals(loginUser.getPassword()) && user.getUsername().equals(loginUser.getUsername())) {
             flag = true;
         }

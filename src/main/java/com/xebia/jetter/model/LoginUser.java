@@ -17,9 +17,9 @@ import lombok.Setter;
 
 @Setter
 @Getter
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class LoginUser {
 
     private String username;
