@@ -23,5 +23,6 @@ import lombok.Setter;
 public class LoginUser {
 
     private String username;
+
     private String password;
 }

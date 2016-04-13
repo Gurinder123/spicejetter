@@ -16,11 +16,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/spice")
 public class LoginController {
 
-    @Autowired
     private LoginService loginService;
 
+    @Autowired
+    public LoginController(LoginService loginService) {
+        this.loginService = loginService;
+    }
+
+
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity loginUser(@RequestBody LoginUser loginUser) {
+    public ResponseEntity<ResponseStatus> loginUser(@RequestBody LoginUser loginUser) {
         ResponseEntity responseEntity;
         ResponseStatus status;
         boolean check = loginService.verifyLoginRequest(loginUser);

@@ -23,11 +23,12 @@ import static org.mockito.Mockito.when;
 @RunWith(Parameterized.class)
 public class SpiceLoginTest {
 
-    @InjectMocks
-    LoginService loginService = new SpiceLogin();
-
     @Mock
     PassengerRepository repository;
+
+    @InjectMocks
+    LoginService loginService = new SpiceLogin(repository);
+
 
     private LoginUser loginUser;
     private boolean result;

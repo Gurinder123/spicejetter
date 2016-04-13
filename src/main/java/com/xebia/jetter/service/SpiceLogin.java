@@ -16,13 +16,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class SpiceLogin implements LoginService {
 
-    @Autowired
+
     private PassengerRepository passengerRepository;
+
+    @Autowired
+    public SpiceLogin(PassengerRepository passengerRepository) {
+        this.passengerRepository = passengerRepository;
+    }
 
     public boolean verifyLoginRequest(LoginUser loginUser) {
         boolean flag = false;
         Passenger user = passengerRepository.findByUsername(loginUser.getUsername());
-        if (user != null && user.getPassword().equals(loginUser.getPassword()) && user.getUsername().equals(loginUser.getUsername())) {
+        if (user != null && user.getPassword().equals(loginUser.getPassword())
+                && user.getUsername().equals(loginUser.getUsername())) {
             flag = true;
         }
 
