@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.doReturn;
 
 /**
  * Created by gurinder on 12/4/16.
@@ -59,7 +59,8 @@ public class SpiceLoginTest {
         Passenger passenger = new Passenger();
         passenger.setPassword("singh");
         passenger.setUsername("gsingh");
-        when(repository.findByUsername("gsingh")).thenReturn(passenger);
+//        when(repository.findByUsername("gsingh")).thenReturn(passenger);
+        doReturn(passenger).when(repository).findByUsername("gsingh");
         boolean result = loginService.verifyLoginRequest(loginUser);
         assertEquals(result, result);
     }

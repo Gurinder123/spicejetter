@@ -2,6 +2,8 @@ package com.xebia.jetter;
 
 import com.xebia.jetter.controller.LoginController;
 import com.xebia.jetter.dao.PassengerRepository;
+import com.xebia.jetter.domain.request.ResponseStatus;
+import com.xebia.jetter.enums.Status;
 import com.xebia.jetter.model.LoginUser;
 import com.xebia.jetter.model.Passenger;
 import com.xebia.jetter.service.LoginService;
@@ -16,6 +18,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by gurinder on 13/4/16.
@@ -49,8 +53,11 @@ public class LoginControllerTest {
         String url = "http://localhost:" + port + "/spice/login";
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-         LoginUser loginUser = new LoginUser("testuser","test");
-        Object responseStatus = template.postForObject(url, loginUser, Object.class);
+        LoginUser loginUser = new LoginUser("testuser", "test");
+        ResponseStatus responseStatus = template.postForObject(url, loginUser, ResponseStatus.class);
+        assertEquals(Status.SUCCESS, responseStatus.getStatus());
+        assertEquals("login success", responseStatus.getMessage());
+
         repository.delete(user);
     }
 
